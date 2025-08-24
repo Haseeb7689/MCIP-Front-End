@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "nprogress/nprogress.css";
+
+:root {
+  color-scheme: light dark;
+}
+html,
+html[dir="rtl"] { direction: rtl; }
+html[dir="ltr"] { direction: ltr; }
+body {
+  height: 100%;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @apply bg-gray-50 text-gray-900 dark:bg-neutral-950 dark:text-neutral-100;
+}
+
+body { text-align: start; }
+
+html[dir="rtl"] .text-left { text-align: right !important; }
+html[dir="rtl"] .text-right { text-align: left !important; }
+
+.container-prose h1 {
+  @apply text-3xl font-bold mb-4;
+}
+.container-prose h2 {
+  @apply text-2xl font-semibold mt-6 mb-3;
+}
+.container-prose p {
+  @apply mb-3 leading-7;
+}
+
+#nprogress .bar {
+  background: linear-gradient(90deg, #29d897, #ff0476, #ffc208) !important;
+  height: 3px !important;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #29d897, 0 0 5px #ff0476, 0 0 5px #ffc208 !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #29d897;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #29d897;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #29d897 transparent;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradient 8s linear infinite;
+}
+
+@keyframes gradient-x {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 6s ease infinite;
+}
