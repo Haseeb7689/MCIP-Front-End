@@ -191,6 +191,11 @@ export default function StockCommunity() {
                 <option value="Peshawar">{t("cityPeshawar")}</option>
                 <option value="Quetta">{t("cityQuetta")}</option>
               </Select>
+              {errors?.items?.[idx]?.city && (
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.items[idx].city?.message}
+                </p>
+              )}
             </div>
 
             <div className="md:col-span-2">
@@ -200,6 +205,11 @@ export default function StockCommunity() {
                 placeholder="Select or type your housing society/project"
                 {...register(`items.${idx}.project`)}
               />
+              {errors?.items?.[idx]?.project && (
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.items[idx].project?.message}
+                </p>
+              )}
               <p className="text-xs mt-1 text-gray-500">{t("projectHelp")}</p>
             </div>
 
@@ -209,6 +219,11 @@ export default function StockCommunity() {
                 className="mt-1 w-full"
                 {...register(`items.${idx}.name`)}
               />
+              {errors?.items?.[idx]?.name && (
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.items[idx].name?.message}
+                </p>
+              )}
             </div>
 
             <div>
@@ -219,6 +234,11 @@ export default function StockCommunity() {
                 className="mt-1 w-full"
                 {...register(`items.${idx}.whatsapp`)}
               />
+              {errors?.items?.[idx]?.whatsapp && (
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.items[idx].whatsapp?.message}
+                </p>
+              )}
             </div>
 
             <div>
@@ -232,6 +252,11 @@ export default function StockCommunity() {
                 <option value="yes">{t("investedYes")}</option>
                 <option value="no">{t("investedNo")}</option>
               </Select>
+              {errors?.items?.[idx]?.invested && (
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.items[idx].invested?.message}
+                </p>
+              )}
             </div>
 
             <div>
@@ -246,6 +271,11 @@ export default function StockCommunity() {
                 <option value="5+ years">{t("duration5plus")}</option>
                 <option value="10+ years">{t("duration10plus")}</option>
               </Select>
+              {errors?.items?.[idx]?.duration && (
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.items[idx].duration?.message}
+                </p>
+              )}
             </div>
 
             <div>
@@ -257,6 +287,11 @@ export default function StockCommunity() {
                 <option value="yes">{t("profitYes")}</option>
                 <option value="no">{t("profitNo")}</option>
               </Select>
+              {errors?.items?.[idx]?.profit && (
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.items[idx].profit?.message}
+                </p>
+              )}
             </div>
 
             <div>
@@ -268,6 +303,11 @@ export default function StockCommunity() {
                 className="mt-1 w-full"
                 {...register(`items.${idx}.rating`)}
               />
+              {errors?.items?.[idx]?.rating && (
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.items[idx].rating?.message}
+                </p>
+              )}
             </div>
 
             <div className="md:col-span-2">
@@ -276,6 +316,11 @@ export default function StockCommunity() {
                 className="mt-1 w-full resize-none"
                 {...register(`items.${idx}.comment`)}
               />
+              {errors?.items?.[idx]?.comment && (
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.items[idx].comment?.message}
+                </p>
+              )}
             </div>
           </div>
         ))}
