@@ -24,7 +24,10 @@ const ItemSchema = z.object({
   rating: z.coerce.number().min(1).max(5),
   comment: z.string().min(3, "At least 3 characters").max(500, "Max 500"),
 });
-const FormSchema = z.object({ items: z.array(ItemSchema).min(1) });
+
+const FormSchema = z.object({
+  items: z.array(ItemSchema).min(1),
+});
 
 type FormType = z.infer<typeof FormSchema>;
 
@@ -40,7 +43,6 @@ export default function StockCommunity() {
   const { t } = useL();
   const [accepted, setAccepted] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-
   const [poll, setPoll] = useState<{
     total: number;
     profit: number;
@@ -101,6 +103,7 @@ export default function StockCommunity() {
     data.items.forEach((it) => {
       if (it.profit === "yes") batchProfit += 1;
       else batchLoss += 1;
+
       batchRatingSum += it.rating;
 
       if (it.comment?.trim()) {
@@ -138,11 +141,13 @@ export default function StockCommunity() {
     const full = Math.floor(value);
     const half = value - full >= 0.5;
     const total = 5;
+
     const items = Array.from({ length: total }, (_, i) => {
       if (i < full) return "★";
       if (i === full && half) return "☆";
       return "☆";
     });
+
     return (
       <span
         className="text-lg leading-none"
@@ -165,11 +170,7 @@ export default function StockCommunity() {
         {fields.map((f, idx) => (
           <div
             key={f.id}
-            className="grid md:grid-cols-2 gap-4 p-6 rounded-2xl
-              bg-gradient-to-br from-[#ff0476]/10 via-[#29d897]/10 to-[#ffc208]/10
-              dark:from-gray-900 dark:via-gray-800 dark:to-gray-900
-              border border-gray-200 dark:border-gray-700
-              shadow-md transition-colors duration-300"
+            className="grid md:grid-cols-2 gap-4 p-6 rounded-2xl bg-gradient-to-br from-[#ff0476]/10 via-[#29d897]/10 to-[#ffc208]/10 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 border border-gray-200 dark:border-gray-700 shadow-md transition-colors duration-300"
           >
             <div className="md:col-span-2">
               <label className="text-sm font-medium">
@@ -301,10 +302,7 @@ export default function StockCommunity() {
         )}
       </form>
 
-      <div
-        className="p-6 rounded-2xl mt-4 bg-white/60 dark:bg-black/40 border border-gray-200 dark:border-gray-700
-        shadow-md space-y-5"
-      >
+      <div className="p-6 rounded-2xl mt-4 bg-white/60 dark:bg-black/40 border border-gray-200 dark:border-gray-700 shadow-md space-y-5">
         <h2 className="text-2xl font-semibold text-[#ff0476] dark:text-[#29d897]">
           {t("pollTitle")}
         </h2>
@@ -363,6 +361,7 @@ export default function StockCommunity() {
                 const shortName = c.name?.trim()
                   ? c.name.trim().split(" ").slice(0, 2).join(" ")
                   : "Anonymous";
+
                 return (
                   <li
                     key={`${c.name}-${i}`}
