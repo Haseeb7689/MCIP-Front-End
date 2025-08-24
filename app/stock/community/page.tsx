@@ -66,7 +66,8 @@ export default function StockCommunity() {
           invested: "yes",
           duration: "1-2 years",
           profit: "yes",
-          rating: 3,
+          rating: z.number().optional().nullable(),
+
           comment: "",
         },
       ],
