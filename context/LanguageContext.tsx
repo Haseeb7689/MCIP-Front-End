@@ -1,6 +1,12 @@
 "use client";
 import StockCommunity from "app/real-estate/community/page";
-import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 export type Locale = "en" | "ur";
 
@@ -128,7 +134,7 @@ const en: Dict = {
     "We aim to help middle class families transition from survival mode to wealth-building—through education, discipline, and smart investing.",
 
   // Hero (green banner in screenshot)
-  renovateTitle: "Renovate Easily",
+  renovateTitle: "Renovate Easil",
   renovateSubtitle:
     "Effortlessly compare quotes from top quality contractors, and get peace of mind with warranty & price protections.",
   feature1: "Advanced Analytics",
@@ -948,7 +954,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
   const [locale, setLocale] = useState<Locale>("en");
   const t = (key: keyof typeof en) => dictionaries[locale][key] || key;
 
-  useEffect(() => { 
+  useEffect(() => {
     const dir = locale === "ur" ? "rtl" : "ltr";
     if (typeof document !== "undefined") {
       document.documentElement.setAttribute("dir", dir);
