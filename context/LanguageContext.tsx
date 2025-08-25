@@ -134,7 +134,7 @@ const en: Dict = {
     "We aim to help middle class families transition from survival mode to wealth-building—through education, discipline, and smart investing.",
 
   // Hero (green banner in screenshot)
-  renovateTitle: "Renovate Easil",
+  renovateTitle: "Renovate Easily",
   renovateSubtitle:
     "Effortlessly compare quotes from top quality contractors, and get peace of mind with warranty & price protections.",
   feature1: "Advanced Analytics",
